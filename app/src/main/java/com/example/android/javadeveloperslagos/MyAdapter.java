@@ -1,6 +1,7 @@
 package com.example.android.javadeveloperslagos;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -16,6 +16,11 @@ import java.util.List;
 
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
+
+
+    public static final String KEY_NAME = "name";
+    public static final String KEY_IMAGE = "image";
+    public static final String KEY_URL = "url";
 
     private List<ListItem> listItems;
     private Context context;
@@ -34,13 +39,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
         final ListItem listItem = listItems.get(position);
 
         holder.textViewHead.setText(listItem.getHead());
         holder.textViewAbout.setText(listItem.getAbout());
 
-      //  use the picasso
+        //  use the picasso
 
         Picasso.with(context)
                 .load(listItem.getImageUrl())
@@ -50,8 +55,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "creating " + listItem.getHead() + " profile ", Toast.LENGTH_SHORT).show();
-                //Launch Intent to create new activity for profile.
+
+                ListItem developersList1 = listItems.get(position);
+
+                Intent skipIntent = new Intent(v.getContext(), ProfileActivity.class);
+                skipIntent.putExtra(KEY_NAME, developersList1.getHead());
+                skipIntent.putExtra(KEY_URL, developersList1.getAbout());
+                skipIntent.putExtra(KEY_IMAGE, developersList1.getImageUrl());
+                v.getContext().startActivity(skipIntent);
+
             }
         });
     }
