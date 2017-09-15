@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="16dp">
 
     <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
         app:cardCornerRadius="5dp"
-        app:cardElevation="20dp"
-        android:layout_margin="10dp">
+        app:cardElevation="20dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -23,6 +23,7 @@
                 android:id="@+id/profileImageView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:contentDescription="This is the placeholder for the user Image"
                 android:scaleType="fitXY"
                 android:src="@drawable/avatar_guy" />
 
@@ -31,13 +32,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
+                android:background="#8c000000"
                 android:gravity="center"
                 android:padding="20dp"
                 android:textColor="@android:color/white"
-                android:textSize="34sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
-                tools:text="Clovis"
-                android:background="#8c000000"/>
+                tools:text="John Doe" />
 
         </RelativeLayout>
 
@@ -48,28 +49,59 @@
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <TextView
-            android:id="@+id/developerUrl"
+        <android.support.v7.widget.CardView
+            android:id="@+id/launchProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="githuburl"
-            android:textColor="#C0C0C0"
-            android:layout_marginBottom="30dp"
-            android:gravity="center"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:layout_margin="4dp">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/view"
+                    android:textColor="#121"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/developerUrl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/developer_s_url"
+                    android:textColor="#121"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/profile_on_github"
+                    android:textColor="#121"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
 
 
         <ImageButton
             android:id="@+id/shareProfile"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:background="@drawable/round_button"
-            android:gravity="center_vertical|center_horizontal"
-            android:src="@mipmap/ic_share_black_24dp"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/round_button"
+            android:contentDescription="@string/share_button_info"
+            android:gravity="center_vertical|center_horizontal"
+            android:src="@mipmap/ic_share_black_24dp" />
 
     </RelativeLayout>
 </LinearLayout>

@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Java Developers Lagos</string>
+    <string name="view">View</string>
+    <string name="developer_s_url">Developer\'s URL</string>
+    <string name="profile_on_github">profile on Github</string>
+    <string name="share_button_info">this is a share button</string>
+    <string name="placeholder_thumbnail">placeholder thumbnail image for user image</string>
 </resources>

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -11,9 +12,6 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-/**
- * Created by David-Okoro on 7/31/2017.
- */
 
 public class ProfileActivity extends AppCompatActivity{
 
@@ -26,7 +24,7 @@ public class ProfileActivity extends AppCompatActivity{
         TextView userNameTextView = (TextView) findViewById(R.id.usernameTextView);
         ImageButton shareProfile = (ImageButton) findViewById(R.id.shareProfile);
         TextView developerUrl = (TextView) findViewById(R.id.developerUrl);
-
+        CardView launchProfile = (CardView) findViewById(R.id.launchProfile);
 
         Intent intent = getIntent();
         final String userName = intent.getStringExtra(MyAdapter.KEY_NAME);
@@ -41,11 +39,12 @@ public class ProfileActivity extends AppCompatActivity{
         userNameTextView.setText(userName);
         developerUrl.setText(profileUrl);
 
-        developerUrl.setOnClickListener(new View.OnClickListener() {
+        launchProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                String url = profileUrl;
+                String url;
+                url = profileUrl;
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse(url));
                 startActivity(i);

@@ -43,7 +43,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         final ListItem listItem = listItems.get(position);
 
         holder.textViewHead.setText(listItem.getHead());
-        holder.textViewAbout.setText(listItem.getAbout());
 
         //  use the picasso
 
@@ -75,7 +74,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         private TextView textViewHead;
-        private TextView textViewAbout;
         private ImageView imageView;
         private LinearLayout linearLayout;
 
@@ -84,7 +82,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             super(itemView);
 
             textViewHead = (TextView) itemView.findViewById(R.id.textViewHead);
-            textViewAbout = (TextView) itemView.findViewById(R.id.textViewAbout);
             imageView = (ImageView) itemView.findViewById(R.id.imageView);
             linearLayout = (LinearLayout) itemView.findViewById(R.id.card);
         }

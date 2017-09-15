@@ -24,9 +24,10 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private static final String URL_DATA = "https://api.github.com/search/users?q=location:lagos+language:java";
+    List<ListItem> listItems;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
-    List<ListItem> listItems;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
                                 object.getString("login"),
                                 object.getString("html_url"),
                                 object.getString("avatar_url")
+
                         );
                         listItems.add(item);
 
